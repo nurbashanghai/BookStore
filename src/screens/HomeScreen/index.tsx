@@ -94,10 +94,8 @@ const HomeScreen = () => {
             <Link
               to={{
                 pathname: item.key,
-                state: {
-                  item,
-                },
               }}
+              state={{ book: item }}
             >
               <View style={styles.book}>
                 <Image

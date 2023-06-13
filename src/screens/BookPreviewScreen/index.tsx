@@ -26,7 +26,6 @@ const BookPreviewScreen = () => {
   useEffect(() => {
     if (params && params.id) {
       fetchPreview(params.id);
-      console.log(location);
     }
   }, [params]);
 
@@ -41,7 +40,7 @@ const BookPreviewScreen = () => {
         />
       </Link>
       <ScrollView>
-        {book && (
+        {book && location.state && (
           <View>
             <Text>{book.title}</Text>
             <Text>{JSON.stringify(book.authors[0])}</Text>
