@@ -1,10 +1,18 @@
 import React from "react";
-import { View } from "react-native";
+import { NativeRouter, Route, Routes } from "react-router-native";
 
 import BottomTabNavigator from "./src/modules/BottomNavigation";
+import BookPreviewScreen from "./src/screens/BookPreviewScreen";
 
 const App = () => {
-  return <BottomTabNavigator />;
+  return (
+    <NativeRouter>
+      <Routes>
+        <Route path="/" element={<BottomTabNavigator />} />
+        <Route path="/works/:id" element={<BookPreviewScreen />} />
+      </Routes>
+    </NativeRouter>
+  );
 };
 
 export default App;

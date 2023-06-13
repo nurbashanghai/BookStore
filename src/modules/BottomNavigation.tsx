@@ -15,11 +15,9 @@ const BottomTabNavigator = () => {
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: {
-            borderTopLeftRadius: 100,
-            borderTopRightRadius: 100,
-            padding: 10,
-            backgroundColor: "#19191B",
+            backgroundColor: "white",
           },
+          headerShown: false,
         }}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
