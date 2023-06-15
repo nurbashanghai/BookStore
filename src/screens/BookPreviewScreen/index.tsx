@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, View, StyleSheet, ScrollView } from "react-native";
+import { Text, View, StyleSheet, ScrollView, Image } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Link, useParams, useLocation } from "react-router-native";
 
@@ -41,10 +41,23 @@ const BookPreviewScreen = () => {
       </Link>
       <ScrollView>
         {book && location.state && (
-          <View>
-            <Text>{book.title}</Text>
-            <Text>{JSON.stringify(book.authors[0])}</Text>
-            <Text>{book.description}</Text>
+          <View style={styles.book} >
+            <Image
+              style={styles.cover}
+              source={{
+                uri: `https://picsum.photos/200/300`,
+              }}
+            />
+            <Text style={styles.title}>{book.title}</Text>
+            <Text style={styles.author}>Author</Text>
+            <View style={styles.stars}>
+              <AntDesign name="star" size={24} color="black" />
+              <AntDesign name="star" size={24} color="black" />
+              <AntDesign name="star" size={24} color="black" />
+              <AntDesign name="star" size={24} color="black" />
+              <AntDesign name="staro" size={24} color="black" />
+            </View>
+            <Text style={styles.description}>{JSON.stringify(book.description)}</Text>
           </View>
         )}
       </ScrollView>
@@ -55,9 +68,35 @@ const BookPreviewScreen = () => {
 const styles = StyleSheet.create({
   backButton: {},
   container: {
-    marginVertical: 15,
+    marginTop: 15,
     marginHorizontal: 15,
   },
+  book: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cover: {
+    height: 300,
+    width: 200,
+    borderRadius: 50,
+  },
+  author: {
+    color: "#9D9D9D",
+    marginTop: 10,
+  },
+  stars: {
+    marginTop: 10,
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "600",
+    marginTop: 10,
+  },
+  description: {
+    marginTop: 15,
+  }
 });
 
 export default BookPreviewScreen;
